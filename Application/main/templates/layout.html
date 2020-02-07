@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet11.css') }}">
+  <title>Main</title>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <ul>
+        <li><a href="{{ url_for('home') }}" class="header">Home</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+    </div>
+
+  
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+</body>
+</html>
